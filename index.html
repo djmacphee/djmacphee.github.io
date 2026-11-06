@@ -99,6 +99,7 @@ section { padding: 72px 0 8px; }
 /* cards */
 .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 18px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; }
+.card.wide { grid-column: 1 / -1; }
 .card .where { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
 .card p { margin: 10px 0 0; }
 .card .outcome { margin-top: auto; padding-top: 16px; }
@@ -221,6 +222,15 @@ footer.contact p { color: var(--muted); max-width: 560px; }
     </article>
 
     <div class="cards">
+      <article class="card wide">
+        <div class="where">Roku &middot; 2026</div>
+        <h3>A one-stop dashboard for Dev, QA and Product</h3>
+        <p>Project status was spread across tools, and each group read it differently. I built a dashboard that brought our workflows into one place, so developers, QA and product saw the same state of a project, and stakeholders did too. It ran from a Docker image, built in TypeScript.</p>
+        <p>It was also a safe place to learn AI. It brought the team's local skills together and gave people somewhere to try AI in their own work, where mistakes were allowed and wins were celebrated. I used it to show how scripts written with AI can replace expensive MCP calls for repetitive tasks, and what different AI models would cost for the same work.</p>
+        <div class="tags" style="margin-top:14px"><span class="tag">TypeScript</span><span class="tag">Docker</span><span class="tag">AI-generated scripts</span><span class="tag">Model cost comparison</span></div>
+        <div class="outcome"><div><strong>Result:</strong> used by multiple teams, including all 23 people on my team, as one place for project status across Dev, QA and Product; more of the team using AI; and lower AI spend by moving repetitive work from MCPs to scripts.</div></div>
+      </article>
+
       <article class="card">
         <div class="where">Roku &middot; 2024&ndash;2026</div>
         <h3>An AI triage agent for CI failures</h3>
