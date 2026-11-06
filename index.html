@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dave MacPhee</title>
+<meta name="description" content="Dave MacPhee: software development and automation leader who builds with AI agents. Case studies from Squad Steward, Roku, Poly and Avaya.">
+<meta property="og:title" content="Dave MacPhee: AI and automation engineering leader">
+<meta property="og:description" content="Case studies: an AI triage agent, daily release readiness for four teams, a full web platform built in eight weeks with AI coding agents.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6fdb'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3EDM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --ink: #141c2e;
+  --text: #2b3445;
+  --muted: #5d6779;
+  --line: #e3e0d8;
+  --accent: #2f6fdb;
+  --accent-soft: #e8effc;
+  --tag: #f1efe9;
+  --shadow: 0 1px 2px rgba(20,28,46,.05), 0 8px 24px rgba(20,28,46,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151d; --surface: #181d27; --ink: #f1f3f7; --text: #cfd5df; --muted: #8e98a8;
+    --line: #2a313e; --accent: #79a6f2; --accent-soft: #1d2a42; --tag: #222937;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151d; --surface: #181d27; --ink: #f1f3f7; --text: #cfd5df; --muted: #8e98a8;
+  --line: #2a313e; --accent: #79a6f2; --accent-soft: #1d2a42; --tag: #222937;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 400 17px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3 { color: var(--ink); line-height: 1.2; margin: 0; }
+h2 { font: 600 clamp(26px, 3.4vw, 34px)/1.15 "Source Serif 4", Georgia, serif; letter-spacing: -.01em; }
+h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+
+/* nav */
+nav.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 16px; }
+nav.top .name { font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
+nav.top ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
+nav.top ul a { color: var(--muted); }
+nav.top ul a:hover { color: var(--ink); text-decoration: none; }
+
+/* hero */
+header.hero { padding: 88px 0 56px; }
+.hero h1 { font: 600 clamp(38px, 6vw, 62px)/1.05 "Source Serif 4", Georgia, serif; letter-spacing: -.02em; max-width: 14ch; }
+.hero .lede { font-size: clamp(18px, 2.1vw, 21px); max-width: 640px; margin: 22px 0 0; color: var(--text); }
+.hero .meta { color: var(--muted); font-size: 15px; margin-top: 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+.btn:hover { text-decoration: none; border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+:root[data-theme="dark"] .btn.primary { color: #0d1320; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #0d1320; } }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin: 8px 0 0; }
+.stat { background: var(--surface); padding: 20px 18px; }
+.stat b { display: block; font: 600 30px/1.1 "Source Serif 4", Georgia, serif; color: var(--ink); }
+.stat span { display: block; font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+section { padding: 72px 0 8px; }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+.section-head p { margin: 10px 0 0; color: var(--muted); max-width: 600px; }
+
+/* feature case study */
+.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 36px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; }
+.feature .kicker { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 14px; color: var(--muted); margin-bottom: 12px; }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 600; }
+.feature h3 { font: 600 28px/1.15 "Source Serif 4", Georgia, serif; }
+.feature p { margin: 14px 0 0; }
+.feature dl { margin: 0; display: grid; gap: 18px; align-content: start; }
+.feature dt { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.feature dd { margin: 4px 0 0; color: var(--ink); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag { font-size: 13px; padding: 3px 9px; border-radius: 6px; background: var(--tag); color: var(--text); }
+.flow { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; counter-reset: s; }
+.flow li { counter-increment: s; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; }
+.flow li::before { content: counter(s); width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; display: grid; place-items: center; margin-top: 2px; }
+
+/* cards */
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 18px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; }
+.card .where { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.card p { margin: 10px 0 0; }
+.card .outcome { margin-top: auto; padding-top: 16px; }
+.card .outcome div { border-top: 1px solid var(--line); padding-top: 14px; font-size: 15px; color: var(--ink); }
+.card .outcome strong { color: var(--accent); }
+
+/* principles */
+.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.principles h3 { font-size: 18px; }
+.principles p { margin: 8px 0 0; color: var(--text); font-size: 16px; }
+.principles .n { font: 600 15px "Source Serif 4", Georgia, serif; color: var(--accent); margin-bottom: 8px; }
+
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 28px 26px; }
+.timeline li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.timeline .when { font-size: 14px; color: var(--muted); font-weight: 500; }
+.timeline .what { font-weight: 600; color: var(--ink); }
+.timeline p { margin: 4px 0 0; font-size: 16px; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.beyond { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.beyond li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.beyond b { color: var(--ink); display: block; }
+.beyond span { font-size: 15px; color: var(--muted); }
+
+footer.contact { margin-top: 80px; border-top: 1px solid var(--line); padding: 56px 0 64px; }
+footer.contact p { color: var(--muted); max-width: 560px; }
+.fine { font-size: 13px; color: var(--muted); margin-top: 40px; }
+
+@media (max-width: 900px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stats .stat:last-child { grid-column: span 2; }
+  .feature { grid-template-columns: 1fr; padding: 26px; gap: 28px; }
+  .cards, .principles, .two { grid-template-columns: 1fr; }
+  nav.top ul { display: none; }
+}
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px; }
+  header.hero { padding: 56px 0 40px; }
+  .feature, .card { padding: 22px; }
+}
+@media print {
+  nav.top, .actions { display: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Sections">
+  <div class="wrap">
+    <a class="name" href="#top">Dave MacPhee</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Software development &amp; automation leader</p>
+    <h1>I build engineering teams that ship with AI.</h1>
+    <p class="lede">For 25 years I've turned slow, manual testing into fast, automated feedback. At Roku I led 23 engineers across four product teams, took them from two-week test cycles to daily results, and built AI agents that triage failures and run releases. Then I founded Squad Steward and built its platform in eight weeks with AI coding agents; it's now in alpha.</p>
+    <p class="meta">Georgetown, Texas</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:davemacphee@outlook.com">Email me</a>
+      <a class="btn" href="Dave-MacPhee-Resume.pdf">Resume (PDF)</a>
+      <a class="btn" href="https://www.linkedin.com/in/davidmacphee">LinkedIn</a>
+      <a class="btn" href="https://github.com/djmacphee">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><b>25+ yrs</b><span>building software and test automation</span></div>
+    <div class="stat" role="listitem"><b>23</b><span>engineers led across four product teams</span></div>
+    <div class="stat" role="listitem"><b>2 wks &rarr; daily</b><span>from test cycles to fresh CI results</span></div>
+    <div class="stat" role="listitem"><b>95%</b><span>CI pass rate held for software on millions of devices</span></div>
+    <div class="stat" role="listitem"><b>8 weeks</b><span>concept to working platform with AI coding agents</span></div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2>Case studies</h2>
+        <p>What the problem was, what I did about it, and what changed.</p>
+      </div>
+    </div>
+
+    <article class="feature">
+      <div>
+        <div class="kicker"><span class="pill">Founder &amp; builder</span><span>Squad Steward &middot; 2026 &middot; in alpha</span></div>
+        <h3>A full web platform in eight weeks, built with AI coding agents</h3>
+        <p>Event volunteers are still run on spreadsheets and email chains. Squad Steward is a volunteer coordination platform: people sign up for shifts, coordinators check them in, invite last year's volunteers back, import and export spreadsheets, and email everyone. The idea came from years of running volunteer teams myself, and it serves any event: a school sign-up, weekend snacks for a kids' team, a small community event or a large event with many teams.</p>
+        <p>I ran the whole build as an agentic engineering workflow. Claude Code wrote and changed the code; I set the direction, reviewed every change, and kept the agents honest with tests.</p>
+        <ol class="flow">
+          <li><span>Plans and specs live in Jira and Confluence; MCP connections let the agents read and update them directly.</span></li>
+          <li><span>Agents implement against unit and end-to-end tests: Vitest for the domain, Playwright for real user flows.</span></li>
+          <li><span>Every change goes through lint, type checks and the test suites before it deploys.</span></li>
+        </ol>
+      </div>
+      <dl>
+        <div><dt>Role</dt><dd>Founder, product owner and sole engineer, working with AI agents</dd></div>
+        <div><dt>Timeline</dt><dd>Concept to working platform in eight weeks; now in alpha</dd></div>
+        <div><dt>What it does</dt><dd>Multi-tenant accounts and teams with role-based access, shift sign-ups and check-in, invite emails with yes/no buttons, spreadsheet import and export with Excel formulas</dd></div>
+        <div><dt>Stack</dt><dd><div class="tags"><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Drizzle</span><span class="tag">Auth.js</span><span class="tag">Vitest</span><span class="tag">Playwright</span><span class="tag">Render</span></div></dd></div>
+        <div><dt>AI tooling</dt><dd><div class="tags"><span class="tag">Claude Code</span><span class="tag">MCP</span><span class="tag">Jira</span><span class="tag">Confluence</span></div></dd></div>
+      </dl>
+    </article>
+
+    <div class="cards">
+      <article class="card">
+        <div class="where">Roku &middot; 2024&ndash;2026</div>
+        <h3>An AI triage agent for CI failures</h3>
+        <p>Hundreds of automated tests on software for millions of devices meant a steady stream of failures, and small teams were losing hours sorting real bugs from noise. I created an AI triage tool in 2024 that diagnoses errors and points to the cause, then grew it into a skills-based agent connected to our development systems through Model Context Protocol.</p>
+        <div class="outcome"><div><strong>Result:</strong> engineers spent their time on product goals instead of triage, and root-cause analysis got faster.</div></div>
+      </article>
+
+      <article class="card">
+        <div class="where">Roku &middot; weekly release train</div>
+        <h3>An autonomous deployment agent</h3>
+        <p>Weekly rollouts depended on people checking that every step was ready. I directed the creation of an agent that verifies process readiness and carries out the weekly rollout, and compared frontier models from Anthropic and OpenAI to pick the right one for each testing job.</p>
+        <div class="outcome"><div><strong>Result:</strong> a repeatable release with the checks built in, and AI applied to test generation, exploratory testing and root-cause analysis.</div></div>
+      </article>
+
+      <article class="card">
+        <div class="where">Roku &middot; Subscriptions, OS, Voice, Payments</div>
+        <h3>From two-week test cycles to daily results</h3>
+        <p>Four product teams waited two weeks to learn whether a build was good. I built an automation-first testing capability inside the CI/CD pipelines, with quality gates and feedback loops that run from automated tests through production incidents to corrective action.</p>
+        <div class="outcome"><div><strong>Result:</strong> fresh CI results every day for a weekly release train, with Voice ready to release on any day.</div></div>
+      </article>
+
+      <article class="card">
+        <div class="where">Roku &middot; global, fully remote</div>
+        <h3>Holding a 95% CI pass-rate standard</h3>
+        <p>A flaky pipeline teaches people to ignore it. I set a 95% pass-rate standard across hundreds of tests and held it, with clear ownership, engineering standards and an async rhythm that worked across time zones for a team of 23.</p>
+        <div class="outcome"><div><strong>Result:</strong> a pipeline the teams trusted, so a red build meant a real problem.</div></div>
+      </article>
+
+      <article class="card">
+        <div class="where">Poly (acquired by HP) &middot; 2013&ndash;2019</div>
+        <h3>One CI/CD framework instead of many</h3>
+        <p>Teams across several countries each had their own legacy test tools. As architect and manager I led a global effort to consolidate them into a single enterprise CI/CD framework in Python and Java, and set the company's automation policy.</p>
+        <div class="outcome"><div><strong>Result:</strong> a scalable deployment model that held up through the HP acquisition, with quality checks moved earlier.</div></div>
+      </article>
+
+      <article class="card">
+        <div class="where">Avaya &middot; 2000&ndash;2013</div>
+        <h3>QA to engineering-led quality</h3>
+        <p>Before "DevOps" was common, I turned manual QA into fully automated continuous integration, built SCM and virtualization tooling on Xen, Java, PHP and MySQL, and wrote call processing and administration layers in C/C++.</p>
+        <div class="outcome"><div><strong>Result:</strong> far less manual testing, and a Director's Award for the efficiency tools.</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">How I work</p>
+        <h2>Approach</h2>
+      </div>
+    </div>
+    <div class="principles">
+      <div>
+        <div class="n">01</div>
+        <h3>Automate the feedback, not just the tests</h3>
+        <p>A test is only useful if someone acts on its result quickly. I build pipelines where results arrive daily, failures are triaged, and production incidents feed back into the suite.</p>
+      </div>
+      <div>
+        <div class="n">02</div>
+        <h3>Put AI where the toil is</h3>
+        <p>Triage, release checks and test generation are where AI agents earn their keep. I connect models to real systems through MCP, measure them against each other, and keep humans on the decisions.</p>
+      </div>
+      <div>
+        <div class="n">03</div>
+        <h3>Small teams, clear standards</h3>
+        <p>Remote teams do well with a steady rhythm, written standards and shared ownership of quality. My job is to clear the path so engineers can do the work they're good at.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">Career</p>
+      <h2 style="margin-bottom:28px">Experience</h2>
+      <ol class="timeline">
+        <li><div class="when">2026 &ndash; present</div><div class="what">Squad Steward &middot; Founder</div><p>Volunteer coordination platform for events of any size, built with AI coding agents. In alpha.</p></li>
+        <li><div class="when">2019 &ndash; 2026</div><div class="what">Roku &middot; Manager of Software Development &amp; Automation</div><p>Progressed from Senior Engineer. AI agents, CI/CD, 23 engineers across four product teams.</p></li>
+        <li><div class="when">2013 &ndash; 2019</div><div class="what">Poly (acquired by HP) &middot; Manager &amp; Architect</div><p>Global automation architecture and multi-country teams.</p></li>
+        <li><div class="when">2000 &ndash; 2013</div><div class="what">Avaya &middot; Lead Software Automation Engineer &amp; DevOps</div><p>C/C++ systems, CI, SCM and virtualization tooling.</p></li>
+        <li><div class="when">Education</div><div class="what">BSc (Hons) Software Engineering, University of Stirling</div><p>Upper Second. AWS Certified, Python Certified.</p></li>
+      </ol>
+    </div>
+    <div>
+      <p class="eyebrow">Beyond work</p>
+      <h2 style="margin-bottom:28px">Leadership off the clock</h2>
+      <ul class="beyond">
+        <li><b>Westy Brew Fest</b><span>Founder and executive director; grew it to more than 3,000 attendees.</span></li>
+        <li><b>Great American Beer Festival</b><span>Volunteer captain, directing a crew of more than 400.</span></li>
+        <li><b>Youth soccer</b><span>Coach for two teams.</span></li>
+        <li><b>Ironman Arizona</b><span>Finished the full 140.6 miles in 2010 and 2013.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk</h2>
+    <p>I'm looking for roles leading AI, automation and quality engineering, or building hands-on with AI agents. The fastest way to reach me is email.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:davemacphee@outlook.com">davemacphee@outlook.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/davidmacphee">LinkedIn</a>
+      <a class="btn" href="https://github.com/djmacphee">GitHub</a>
+      <a class="btn" href="Dave-MacPhee-Resume.pdf">Resume (PDF)</a>
+    </div>
+    <p class="fine">&copy; 2026 Dave MacPhee</p>
+  </div>
+</footer>
+
+</body>
+</html>
